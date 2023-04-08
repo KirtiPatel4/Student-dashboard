@@ -13,31 +13,32 @@ const Team = () => {
   const columns = [
     { field: "id", headerName: "ID" },
     {
-      field: "name",
-      headerName: "Name",
+      field: "companyname",
+      headerName: "Company Name",
       flex: 1,
       cellClassName: "name-column--cell",
     },
     {
-      field: "branch",
-      headerName: "Branch",
+      field: "beligibity",
+      headerName: "Eligibity",
       type: "String",
       headerAlign: "left",
       align: "left",
     },
     {
-      field: "phone",
-      headerName: "Phone Number",
+      field: "meligibity",
+      headerName: " ",
       flex: 1,
     },
     {
-      field: "email",
-      headerName: "Email",
+      field: "deadline",
+      headerName: "Deadline",
       flex: 1,
     },
+   
     {
-      field: "accessLevel",
-      headerName: "Access Level",
+      field: "apply",
+      headerName: "Apply here",
       flex: 1,
       renderCell: ({ row: { access } }) => {
         return (
@@ -48,7 +49,7 @@ const Team = () => {
             display="flex"
             justifyContent="center"
             backgroundColor={
-              access === "admin"
+              access === "APPLY"
                 ? colors.greenAccent[600]
                 : access === "manager"
                 ? colors.greenAccent[700]
@@ -56,12 +57,12 @@ const Team = () => {
             }
             borderRadius="4px"
           >
-            {access === "admin" && <AdminPanelSettingsOutlinedIcon />}
+            {access === "APPLY" && <AdminPanelSettingsOutlinedIcon />}
             {access === "manager" && <SecurityOutlinedIcon />}
             {access === "user" && <LockOpenOutlinedIcon />}
             <Typography color={colors.grey[100]} sx={{ ml: "5px" }}>
               {access}
-            </Typography>
+            </Typography> 
           </Box>
         );
       },
@@ -70,7 +71,7 @@ const Team = () => {
 
   return (
     <Box m="20px">
-      <Header title="TEAM" subtitle="Managing the Team Members" />
+      <Header title="Apply here" subtitle="Students can apply for the compaines here. Check the deadline and eligibilty" />
       <Box
         m="40px 0 0 0"
         height="75vh"

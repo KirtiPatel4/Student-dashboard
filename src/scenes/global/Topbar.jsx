@@ -8,12 +8,21 @@ import NotificationsOutlinedIcon from "@mui/icons-material/NotificationsOutlined
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import SearchIcon from "@mui/icons-material/Search";
+import {toast, ToastContainer, Zoom} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const Topbar = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const colorMode = useContext(ColorModeContext);
+  const notify=()=>{
+      toast.info("JPMC Hackathon live", {position:toast.POSITION.BOTTOM_RIGHT, theme:'dark', autoClose:10000});
+      toast.info("Apply for TCS drive", {position:toast.POSITION.BOTTOM_RIGHT, theme:'dark', autoClose:10000});
+      toast.info("Apply for Accenture drive", {position:toast.POSITION.BOTTOM_RIGHT, theme:'dark', autoClose:10000});
+    }
 
+  
   return (
     <Box display="flex" justifyContent="space-between" p={2}>
       {/* SEARCH BAR */}
@@ -37,9 +46,10 @@ const Topbar = () => {
             <LightModeOutlinedIcon />
           )}
         </IconButton>
-        <IconButton>
-          <NotificationsOutlinedIcon />
-        </IconButton>
+        <IconButton onClick={notify}>
+          <NotificationsOutlinedIcon /> 
+          <ToastContainer transition={Zoom}></ToastContainer>
+          </IconButton>
         <IconButton>
           <SettingsOutlinedIcon />
         </IconButton>
